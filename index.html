@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    
+    #quoteDisplay {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
+      min-height: 100px;
+    }
+    
+    .quote-text {
+      font-size: 1.5em;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    
+    .quote-category {
+      font-size: 0.9em;
+      color: #888;
+      text-align: right;
+    }
+    
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 5px;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .form-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    
+    input[type="text"], input[type="file"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Quote Generator</h1>
+  <div id="quoteDisplay"></div>
+  <div class="button-container">
+    <button id="newQuote">Show New Quote</button>
+  </div>
+
+  <!-- Add Quote Form -->
+  <div class="form-section">
+    <h2>Add Your Own Quote</h2>
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button onclick="addQuote()">Add Quote</button>
+  </div>
+
+  <!-- Import/Export Section -->
+  <div class="form-section">
+    <h2>Import/Export Quotes</h2>
+    <button id="exportQuotes" onclick="exportToJsonFile()">Export Quotes as JSON</button>
+    <br><br>
+    <label for="importFile">Import quotes from JSON file:</label>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
